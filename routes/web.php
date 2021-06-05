@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/cars', [CarsController::class,'index']);
-
-
+Route::get('/cars/createCars', [CarsController::class, 'create']);
 Route::get('/cars/{id}', [CarsController::class, 'show']);
+Route::post('/cars', [CarsController::class, 'store'] );
 

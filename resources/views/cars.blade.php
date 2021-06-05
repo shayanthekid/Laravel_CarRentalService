@@ -11,18 +11,14 @@
     @foreach ($Cars as $car)
          <p class="text-gray-600 dark:text-gray-400">
 
-         {{$car['Type']}}
+         {{$car->name}} - {{$car->brand}}
         </p>
-       
-         <p class="text-gray-600 dark:text-gray-400">
-
-         {{$name}}
-        </p>
+      
        
 
     @endforeach
 
-    <img src="/img/test.jpg" alt="">
+    {{-- <img src="/img/test.jpg" alt=""> --}}
 
     </div>
     @endsection

@@ -21,7 +21,7 @@ class CreateCarsTable extends Migration
             $table->string('IMGString');
             $table->foreignId('driver_id')
             -> nullable()
-            ->constrained('users'); 
+            ->constrained('driver'); 
         });
     }
 
