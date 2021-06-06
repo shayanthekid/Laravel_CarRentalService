@@ -9,6 +9,13 @@
         {{$car->brand}} - 
          {{$car->details}}
         </h1>
+
+        @forelse ($car->driver as $model)
+            
+        {{$model['name']}}
+        @empty
+            
+        @endforelse
         <a href="/cars">Back to cars</a>
         </div>
 

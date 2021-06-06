@@ -19,10 +19,7 @@ class CreateCarsTable extends Migration
             $table->string('name');
             $table->string('details');
             $table->string('IMGString');
-            $table->boolean('rented')->default(false);
-            $table->foreignId('driver_id')
-            -> nullable()
-            ->constrained('driver'); 
+            $table->boolean('rented')->default(false); 
         });
     }
 

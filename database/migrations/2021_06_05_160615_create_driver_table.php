@@ -18,6 +18,9 @@ class CreateDriverTable extends Migration
             $table->string('name');
             $table->date('DOB');
             $table->integer('Experience');
+            $table->foreignId('car_id')
+            ->nullable()
+            ->constrained('cars');
         });
     }
 

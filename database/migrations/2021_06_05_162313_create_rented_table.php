@@ -19,6 +19,8 @@ class CreateRentedTable extends Migration
             $table->foreignId('car_id')
                 ->constrained('cars');
             $table->date('DateOfRent');
+            $table->integer('KM');
+            $table->integer('Price');
         });
     }
 

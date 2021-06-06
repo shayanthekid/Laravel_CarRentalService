@@ -49,7 +49,7 @@ public function __construct()
       $car->brand = request('brand');
       $car->details = request('details');
       $car->IMGString = request('IMGString');
-      $car->driver_id  = request('driver_id');
+
 
       $car->save();
 

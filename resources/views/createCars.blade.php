@@ -18,8 +18,7 @@
         </select>
         <label for="IMGString">Image:</label>
         <input type="text" name="IMGString" id="imgString">
-   <label for="driver_id">Driver ID</label>
-        <input type="text" name="driver_id" id="driverID">
+   
   <label for="details">Details</label>
     <textarea name="details" id="details" cols="30" rows="10"></textarea>
    
