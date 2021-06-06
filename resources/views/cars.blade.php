@@ -1,5 +1,5 @@
     
-    @extends('layouts.layouts')
+    @extends('layouts.app')
     
     @section('content')
 
@@ -9,10 +9,14 @@
  
 
     @foreach ($Cars as $car)
-         <p class="text-gray-600 dark:text-gray-400">
+    <a href="/cars/{{$car->id}}">
+          <p class="text-gray-600 dark:text-gray-400">
+
 
          {{$car->name}} - {{$car->brand}}
         </p>
+    </a>
+       
       
        
 

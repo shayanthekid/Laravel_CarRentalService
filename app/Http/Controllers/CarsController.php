@@ -8,13 +8,17 @@ use App\Models\Car;
 class CarsController extends Controller
 {
     //
+public function __construct()
+{
+    $this->middleware('auth');
+}
 
     public function index()
     {
 
-        $cars = Car::all();
+        
   //      $cars = Car::orderBy('id')->get();
-  //      $cars = Car::where('type', 'Toyota')->get();
+        $cars = Car::where('rented', 0)->get();
         
 
         return view('cars', [

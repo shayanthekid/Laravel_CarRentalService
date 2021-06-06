@@ -11,6 +11,24 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    const ADMIN_TYPE = 'admin';
+    const OFFICER_TYPE = 'officer';
+    const CUSTOMER_TYPE = 'customer';
+
+    public function isAdmin()
+    {
+        return $this->role === self::ADMIN_TYPE;
+    }
+
+    public function isOfficer()
+    {
+        return $this->role === self::OFFICER_TYPE;
+    } 
+    public function isCustomer()
+    {
+        return $this->role === self::CUSTOMER_TYPE;
+    } 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +38,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'usertype'
     ];
 
     /**
@@ -40,4 +59,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $timestamps = false;
 }
