@@ -25,7 +25,8 @@ class UploadPhoto extends Component
             'photo' => 'image|max:1024', // 1MB Max
         ]);
 
-        $this->photo->store('photos');
+        $filename =  $this->photo->storeAs('public/photo', $this->photo->getClientOriginalName() );
+        dd($filename->temporaryUrl());
     }
 
 
