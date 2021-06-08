@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">Add Users</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="/admin" method="POST">
                         @csrf
 
                         <div class="form-group row">
@@ -39,8 +39,23 @@
                             </div>
                         </div>
                         
-                        <input id="usertype" type="text" value="Customer" class="form-control @error('usertype') is-invalid @enderror" name="usertype" value="{{ old('usertype') }}" required autocomplete="usertype" hidden>
+                        <div class="form-group row">
+                            <label for="usertype" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
 
+                            <div class="col-md-6">
+ <select id="usertype" class="form-control @error('usertype') is-invalid @enderror" name="usertype" value="{{ old('usertype') }}" required autocomplete="usertype">
+    <option value="Admin">Admin</option>
+    <option value="Customer">Customer</option>
+    <option value="Officer">Officer</option>
+   
+  </select>
+                                @error('usertype')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -76,5 +91,80 @@
             </div>
         </div>
     </div>
+    
+<h1>{{session('msg')}}</h1>
+
+<div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">View Rented Cars</div>
+
+                <div class="card-body">
+                
+                   @foreach ($Cars as $car)
+    <a href="/cars/{{$car['id']}}">
+          <p class="text-gray-600 dark:text-gray-400">
+
+
+         {{$car['name']}} - {{$car['brand']}}
+        </p>
+        {{-- <img src="\storage\photo\{{$car['IMGString']}}"> --}}
+    </a>
+       
+      
+       
+
+    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">View Rented Enquries</div>
+
+                <div class="card-body">
+                                
+        {{-- <img src="\storage\photo\{{$car['IMGString']}}"> --}}
+   
+       <table class="table-auto">
+  <thead>
+    <tr>
+      <th>CarID</th>
+      <th>UserID</th>
+      <th>Date Of Rent</th>
+      <th>No. Of KM</th>
+      <th>Price</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   
+       @foreach ($Rented as $rent)
+
+        <td> {{$rent['user_id']}}</td>
+        <td> {{$rent['car_id ']}}</td>
+        <td> {{$rent['DateOfRent']}}</td>
+        <td> {{$rent['KM']}}</td>
+        <td> {{$rent['	Price']}}</td>
+   
+@endforeach
+    </tr>
+   
+  </tbody>
+</table>
+      
+       
+
+    
+        
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 @endsection

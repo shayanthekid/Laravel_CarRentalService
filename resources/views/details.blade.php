@@ -10,13 +10,19 @@
          {{$car->details}}
         </h1>
 
+
+@livewire('maps-distance')
+
         @forelse ($car->driver as $model)
             
         {{$model['name']}}
         @empty
             
         @endforelse
+
+ {{var_dump($response->json()['rows'][0]['elements'][0]['distance'])}}
         <a href="/cars">Back to cars</a>
         </div>
-
+        
+  @livewireScripts
     @endsection

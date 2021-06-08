@@ -7,9 +7,9 @@
 
 @livewire('car-search-bar')
 
-            <h1 class="text-gray-600 dark:text-gray-400">Cars</h1>
+            <h1 class="text-gray-600 dark:text-gray-400">{Cars}</h1>
        
- 
+    {{-- <h1 class="text-gray-600 dark:text-gray-400">{{$user = auth()->user()['id']}}</h1> --}}
 
     @foreach ($Cars as $car)
     <a href="/cars/{{$car['id']}}">
@@ -18,6 +18,7 @@
 
          {{$car['name']}} - {{$car['brand']}}
         </p>
+        <img src="\storage\photo\{{$car['IMGString']}}">
     </a>
        
       
