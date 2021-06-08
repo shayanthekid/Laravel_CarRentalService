@@ -24,21 +24,20 @@
     
 @php
     $Start_point =$data['origin_addresses'][0];
-    $End_point;
-    $Distance;
-    $DistanceInt;
-    $DistanceTotal;
+    $End_point =$data['destination_addresses'][0] ;
+    $Distance = $data['rows'][0]['elements'][0]['distance']['text'];
+    $DistanceInt = $data['rows'][0]['elements'][0]['distance']['value'];
+    $DistanceTotal = 50 * $DistanceInt;
     $current_address= $data['rows'][0]['elements'][0]['distance']['text']
 @endphp
 
 <h4>Your Starting address is: {{  $Start_point}} </h4>
-<h4>Your Ending point is:  {{var_dump($data['destination_addresses'][0])}} </h4>
+<h4>Your Ending point is:  {{$End_point}} </h4>
 
 <p>
-    The distance between these two places is : {{var_dump($data['rows'][0]['elements'][0]['distance']['text'])}} 
-
-
+    The distance between these two places is : {{$Distance}} 
 </p>
+<p> Your total price would be {{$DistanceTotal}} Rs </p>
 @endif
 {{$origin}}
     <button wire:click="Query">Like Post</button>
