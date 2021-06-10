@@ -35,6 +35,7 @@ Route::get('/admin/manageRents',[RentedController::class,'index']);
 Route::post('/admin/manageRents/{id}', [RentedController::class, 'edit']);
 Route::delete('/admin/manageRents/{id}',[RentedController::class, 'destroy']);
 Route::get('/profile/{id}',[RentedController::class, 'ProfileIndex']);
+Route::post('/profile/{id}',[RentedController::class, 'Invoice']);
 
 Auth::routes();
 

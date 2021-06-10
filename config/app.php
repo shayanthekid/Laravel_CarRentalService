@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         SKAgarwal\GoogleApi\ServiceProvider::class,
-
+        'Barryvdh\DomPDF\ServiceProvider',
     ],
 
     /*
@@ -231,7 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
         'GooglePlaces' => SKAgarwal\GoogleApi\Facade::class,
-
+        'PDF'       => 'Barryvdh\DomPDF\Facade'
     ],
 
 ];

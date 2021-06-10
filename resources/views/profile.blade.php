@@ -39,7 +39,8 @@
        
         <td> 
 
-  <form action="" method="POST">
+  <form action="/profile/{{$rent['user_id']}}" method="POST">
+    @csrf
                 
                     <button  class="btn btn-info btn-sm" name="btn-Delete"  type="submit" >Generate Invoice </button>
                      </form>
