@@ -8,20 +8,28 @@
            {{$car->name}} -
         {{$car->brand}} - 
         </h1>
+@php
 
+    Session::put('carID', $car->id);
+@endphp
 
 @livewire('maps-distance')
 
         @forelse ($car->driver as $model)
-            
-        {{$model['name']}}
+            <h4>Meet your Driver!</h4>
+            <h5>His name is:  {{$model['name']}}</h5>
+            <h5>He was born on:  {{$model['DOB']}}</h5>
+            <h5>He has worked with us for over {{$model['Experience']}} years</h5>
+       
         @empty
-            
+            <h5>No driver assigned</h5>
         @endforelse
+{{-- 
 
- {{var_dump($response->json()['rows'][0]['elements'][0]['duration'])}}
-        <a href="/cars">Back to cars</a>
-        </div>
+    
+ {{var_dump($response->json()['rows'][0]['elements'][0]['duration'])}} --}}
+
+ 
         
   @livewireScripts
     @endsection

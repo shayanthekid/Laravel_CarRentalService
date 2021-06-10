@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\DriverModel;
 class Drivers extends Component
 {
-    public $driver, $name, $DOB, $Experience,$car_id, $drive_id ;
+    public $driver, $name, $DOB, $Experience,$car_id, $drive_id;
     public $updateMode = false;
 
     public function render()

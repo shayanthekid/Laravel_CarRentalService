@@ -120,51 +120,6 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">View Rented Enquries</div>
-
-                <div class="card-body">
-                                
-        {{-- <img src="\storage\photo\{{$car['IMGString']}}"> --}}
-   
-       <table class="table-auto">
-  <thead>
-    <tr>
-      <th>CarID</th>
-      <th>UserID</th>
-      <th>Date Of Rent</th>
-      <th>No. Of KM</th>
-      <th>Price</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-   
-       @foreach ($Rented as $rent)
-
-        <td> {{$rent['user_id']}}</td>
-        <td> {{$rent['car_id ']}}</td>
-        <td> {{$rent['DateOfRent']}}</td>
-        <td> {{$rent['KM']}}</td>
-        <td> {{$rent['	Price']}}</td>
-   
-@endforeach
-    </tr>
-   
-  </tbody>
-</table>
-      
-       
-
-    
-        
-                </div>
-            </div>
-        </div>
-    </div>
-
+ 
 </div>
 @endsection

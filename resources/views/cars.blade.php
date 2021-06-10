@@ -8,7 +8,7 @@
 
 @livewire('car-search-bar')
 
-            <h1 class="text-gray-600 dark:text-gray-400">{Cars}</h1>
+            <h1 class="text-gray-600 dark:text-gray-400">All rentable cars</h1>
        
     {{-- <h1 class="text-gray-600 dark:text-gray-400">{{$user = auth()->user()['id']}}</h1> --}}
 

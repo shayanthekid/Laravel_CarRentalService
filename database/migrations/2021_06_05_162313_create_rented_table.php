@@ -26,6 +26,7 @@ class CreateRentedTable extends Migration
             $table->date('DateOfReturn');
             $table->integer('KM');
             $table->integer('Price');
+            $table->boolean('approval')->default(false);
         });
     }
 

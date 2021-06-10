@@ -1,5 +1,7 @@
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}
+    
+
 <input type="text"
  class="form-input" 
  placeholder="Enter starting destination"
@@ -16,7 +18,7 @@
 
 
 @if (empty($data))
-<p> No data </p>    
+  
 
 
     
@@ -41,8 +43,50 @@
 <p> Your total price would be {{$DistanceTotal}} Rs </p>
 <p> Estimated time {{$Duration}} </p>
 @endif
-{{$origin}}
+
     <button wire:click="Query">Like Post</button>
 
+  
+
+
+ @if(!empty($Distance))
+ <h2>Rent your car today!</h2>
+   <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+  <div class="card">
+  <div class="card-body">
+@php
+    $carid = Session::get('carID');
+@endphp
+
+    <form action="/cars/{{$carid}}" method="post">
+        
+<div class="form-group">
+    @csrf
+        <label for="exampleFormControlInput2">Date of Rent</label>
+        <input type="date" class="form-control" id="DateOfRent"  name="DateOfRent" placeholder="Enter Date of Rent">
+        @error('DOB') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+
+    <div class="form-group">
+        <input type="text" id="user_id" name="user_id" value="{{$user = auth()->user()['id']}}" hidden >
+        <input type="text" id="car_id" name="car_id" value="{{$carid}}" hidden  >
+        <input type="text" id="KM" name="KM" value="{{$DistanceInt}}" hidden >
+        <input type="text" id="Price" name="Price" value="{{$DistanceTotal}}" hidden  >
+     
+ 
+        <label for="exampleFormControlInput2">Date of return</label>
+        <input type="date" class="form-control" id="DateOfReturn" name="DateOfReturn"  placeholder="Enter Date of Return">
+        @error('DOB') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+    <button type="submit" > Rent! </button>
+    </form>
+  </div>
+  </div>
+            </div>
+        </div>
+   </div>
+@endif
 
 </div>

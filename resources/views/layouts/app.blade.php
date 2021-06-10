@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Car-Rent') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -61,7 +61,7 @@
                                     <a class="nav-link" href="/cars">Cars</a>
                                 </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="/profile">Profile</a>
+                                    <a class="nav-link" href="/profile/{{auth()->user()['id']}}">Profile</a>
                                 </li>
 
                            
@@ -69,6 +69,9 @@
                                 @elseif ($usertype  === "Admin")
                                        <li class="nav-item">
                                     <a class="nav-link" href="/admin">Dashboard</a>
+                                </li>
+                                       <li class="nav-item">
+                                    <a class="nav-link" href="/admin/manageRents">Manage Rents</a>
                                 </li>
                                @elseif ($usertype  === "Officer")
                                        <li class="nav-item">
