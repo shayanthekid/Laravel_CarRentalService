@@ -15,10 +15,15 @@ class CreateRentedTable extends Migration
     {
         Schema::create('rented', function (Blueprint $table) {
             $table->foreignId('user_id')
-                ->constrained('users'); 
+                ->on('users')
+                ->constrained('users')
+                ->onDelete('cascade'); 
             $table->foreignId('car_id')
-                ->constrained('cars');
+                ->on('car_id')
+                ->constrained('cars')
+                ->onDelete('cascade');
             $table->date('DateOfRent');
+            $table->date('DateOfReturn');
             $table->integer('KM');
             $table->integer('Price');
         });

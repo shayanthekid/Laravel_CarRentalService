@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,11 @@ Route::get('/', function () {
 Route::get('/cars', [CarsController::class,'index']);
 Route::get('/cars/createCars', [CarsController::class, 'create']);
 Route::get('/cars/{id}', [CarsController::class, 'show']);
+Route::delete('/cars/{id}',[CarsController::class, 'destroy']);
 Route::post('/cars', [CarsController::class, 'store'] );
 Route::get('/admin',[UserController::class, 'index']);
 Route::post('/admin',[UserController::class, 'store']);
-
+Route::get('/createDrivers',[DriverController::class,'index']);
 
 Auth::routes();
 

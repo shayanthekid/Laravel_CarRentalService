@@ -3,7 +3,8 @@
     
     @section('content')
 
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    @if ($user = auth()->user()['usertype'] === "Customer")
+            <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
 @livewire('car-search-bar')
 
@@ -29,5 +30,10 @@
     {{-- <img src="/img/test.jpg" alt=""> --}}
 
     </div>
+    @else
+        
+            <h1 class="text-gray-600 dark:text-gray-400">You are not authorized to access this page</h1>
+    @endif
+    
     @livewireScripts
     @endsection

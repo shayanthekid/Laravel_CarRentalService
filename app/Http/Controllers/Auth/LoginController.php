@@ -34,7 +34,7 @@ class LoginController extends Controller
             $redirect = '/admin';
         } elseif ($user->usertype == "Officer") {
             // it's a manager
-            $redirect = '/officer';
+            $redirect = '/cars/createCars';
         } else {
             // it's a user
             $redirect = '/cars';

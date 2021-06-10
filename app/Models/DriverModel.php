@@ -18,4 +18,5 @@ class DriverModel extends Model
     }
 
     public $timestamps = false;
+    protected $guarded = [];
 }

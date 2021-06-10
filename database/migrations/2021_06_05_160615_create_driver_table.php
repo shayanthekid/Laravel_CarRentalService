@@ -20,7 +20,8 @@ class CreateDriverTable extends Migration
             $table->integer('Experience');
             $table->foreignId('car_id')
             ->nullable()
-            ->constrained('cars');
+            ->constrained('cars')
+            ->onDelete('cascade');
         });
     }
 

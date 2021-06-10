@@ -43,7 +43,7 @@ public function __construct()
         $user->save();
 
 
-        return redirect('/admin')->with('msg', "car created");
+        return redirect('/admin')->with('msg', "User created");
     }
 
 }

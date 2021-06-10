@@ -52,6 +52,36 @@
                                 </li>
                             @endif
                         @else
+
+                        @php
+                            $usertype =$user = auth()->user()['usertype'];
+                        @endphp
+                        @if ($usertype  === "Customer")
+                              <li class="nav-item">
+                                    <a class="nav-link" href="/cars">Cars</a>
+                                </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/profile">Profile</a>
+                                </li>
+
+                           
+
+                                @elseif ($usertype  === "Admin")
+                                       <li class="nav-item">
+                                    <a class="nav-link" href="/admin">Dashboard</a>
+                                </li>
+                               @elseif ($usertype  === "Officer")
+                                       <li class="nav-item">
+                                    <a class="nav-link" href="/cars/createCars">Manage Cars</a>
+                                </li>
+                                     <li class="nav-item">
+                                    <a class="nav-link" href="/createDrivers">Manage Drivers</a>
+                                </li>
+                              
+                              
+
+                        @endif
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

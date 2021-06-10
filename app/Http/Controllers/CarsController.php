@@ -24,7 +24,6 @@ public function __construct()
         return view('cars', [
             'Cars' => $cars,
             'name' => request('name')
-
         ]);
     }
 
@@ -43,9 +42,11 @@ public function __construct()
     }
     public function create()
     {
+        $cars = Car::where('rented', 0)->get();
 
-
-        return view('createCars');
+        return view('createCars', [
+            'Cars' => $cars
+        ]);
     }
     public function store()
     {
@@ -61,6 +62,15 @@ public function __construct()
 
 
         return redirect('/cars/createCars')->with('msg',"car created");
+    }
+
+    public function destroy($id){
+
+        $car = Car::findOrFail($id);
+        $car->delete();
+
+        return redirect('/cars/createCars')->with('msg2', "car deleted");
+
     }
 
     // function getDistance($addressFrom, $addressTo, $unit = '')

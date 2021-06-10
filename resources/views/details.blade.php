@@ -7,7 +7,6 @@
        <h1 class="text-gray-600 dark:text-gray-400">
            {{$car->name}} -
         {{$car->brand}} - 
-         {{$car->details}}
         </h1>
 
 
@@ -20,7 +19,7 @@
             
         @endforelse
 
- {{var_dump($response->json()['rows'][0]['elements'][0]['distance'])}}
+ {{var_dump($response->json()['rows'][0]['elements'][0]['duration'])}}
         <a href="/cars">Back to cars</a>
         </div>
         
