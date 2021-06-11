@@ -3,6 +3,10 @@
 
   @section('content')
       
+
+    @if ($user = auth()->user()['usertype'] === "Officer")
+   
+   
 <div class="wrapper create-pizza">
 
     <h1>Create a new Car</h1>
@@ -51,6 +55,12 @@
 <h1>{{session('msg2')}}</h1>
 
 </div>
+
+    @else
+        
+            <h1 class="text-gray-600 dark:text-gray-400">You are not authorized to access this page</h1>
+    @endif
+
 
 @livewireScripts
 @endsection

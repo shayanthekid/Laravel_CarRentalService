@@ -47,11 +47,18 @@
                     @method('DELETE')
                     <button  class="btn btn-danger btn-sm" name="btn-Delete"  type="submit" >Delete </button>
                      </form>
-                     
+        
+                     @if($rent['approval']==0)
  <form action="/admin/manageRents/{{$rent['car_id']}}" method="POST">
                  @csrf
-                    <button class="btn btn-primary btn-sm"  type="submit" name="btn-Approve">Approve </button>
+                    <button class="btn btn-primary btn-sm"  type="submit" value="approve" name="submitbutton">Approve </button>
                      </form>
+                     @else
+                      <form action="/admin/manageRents/{{$rent['car_id']}}" method="POST">
+                 @csrf
+                    <button class="btn btn-info btn-sm"  type="submit" value="unrent" name="submitbutton">Un-rent </button>
+                     </form>
+                     @endif
         </td>
             </tr>
             @endforeach

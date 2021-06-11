@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    @if ($user = auth()->user()['usertype'] === "Admin")
+ <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -122,4 +123,11 @@
 
  
 </div>
+ 
+    @else
+        
+            <h1 class="text-gray-600 dark:text-gray-400">You are not authorized to access this page</h1>
+    @endif
+
+
 @endsection

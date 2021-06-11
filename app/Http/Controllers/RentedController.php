@@ -77,17 +77,42 @@ class RentedController extends Controller
 
     public function edit($id)
     {
-        $car = Car::firstOrFail()->where('id', $id);
-        $car->update([
-            'rented' => 1
-        ]);
+        $request = request();
+        switch ($request->submitbutton) {
+
+            case 'approve':
+                //action save here
+                $car = Car::firstOrFail()->where('id', $id);
+                $car->update([
+                    'rented' => 1
+                ]);
 
 
-        $rented = RentedModel::firstOrFail()->where('car_id', $id);
-        $rented->update([
-            'approval' => 1,
-        ]);
+                $rented = RentedModel::firstOrFail()->where('car_id', $id);
+                $rented->update([
+                    'approval' => 1,
+                ]);
 
+                break;
+
+            case 'unrent':
+                //action for save-draft here
+                $car = Car::firstOrFail()->where('id', $id);
+                $car->update([
+                    'rented' => 0
+                ]);
+
+
+                $rented = RentedModel::firstOrFail()->where('car_id', $id);
+                $rented->update([
+                    'approval' => 0,
+                ]);
+
+
+                break;
+        }
+
+ 
        
         return redirect('/admin/manageRents');
     }
