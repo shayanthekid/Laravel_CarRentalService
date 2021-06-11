@@ -21,7 +21,7 @@ class CreateDriverTable extends Migration
             $table->foreignId('car_id')
             ->nullable()
             ->constrained('cars')
-            ->onDelete('cascade');
+            ->onDelete('set null');
         });
     }
 

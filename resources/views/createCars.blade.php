@@ -9,50 +9,92 @@
    
 <div class="wrapper create-pizza">
 
-    <h1>Create a new Car</h1>
-    
 
-@livewire('upload-photo')
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Manage Cars</h2>
+                    </div>
+                    <div class="card-body">
+                        @if (session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+                        @livewire('upload-photo')
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1>{{session('msg')}}</h1>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
 
  
 
-<h1>{{session('msg')}}</h1>
 
+
+<div class="container">
+  <div class="row justify-content-center">
+            <div class="col-md-8">
+<div class="card">
+   <div class="card-header">
+                      
 <h1>Delete Cars</h1>
-
-
-
-<table> 
-      <td style=" padding: 5px 0px 0px 85px;"><b> Name </td>
-    <td style=" padding: 5px 0px 0px 85px;">  <b>Brand </td>
-    <td style=" padding: 5px 0px 0px 85px;">  <b>Details </td>
-    <td style=" padding: 5px 0px 0px 85px;">  <b>Action </td>
-    @foreach ($Cars as $car)
-
-
-
-        <tr>
-          
-                  <td style=" padding: 5px 0px 0px 85px;">{{$car['name']}}</td>
-                  <td style=" padding: 5px 0px 0px 85px;">{{$car['brand']}}</td>
-                  <td style=" padding: 5px 0px 0px 85px;">{{$car['details']}}</td>
-                  <td style=" padding: 5px 0px 0px 85px;">
-                  <form action="/cars/{{$car['id']}}" method="POST">
+                    </div>
+  <table class="table table-bordered mt-5">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Details</th>
+                <th>IMGString</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($Cars as $value)
+            <tr>
+                <td>{{ $value->id }}</td>
+                <td>{{ $value->brand }}</td>
+                <td>{{ $value->name }}</td>
+                <td>{{ $value->details }}</td>
+                <td>{{ $value->IMGString }}</td>
+                <td>
+              <form action="/cars/{{$value['id']}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button  type="submit" >Delete </button>
+                    <button  class="btn btn-danger" type="submit" >Delete </button>
                      </form>
                   </td>
-
-              
-                </tr>
-       
-
-    @endforeach
- 
-</table>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    
+</div>
 
 <h1>{{session('msg2')}}</h1>
+</div>
+</div>
+</div>
+
+
 
 </div>
 
